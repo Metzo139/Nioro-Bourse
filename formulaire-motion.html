@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulaire de candidature — 313 bourses Nioro du Rip</title>
+<meta name="theme-color" content="#06120D">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+:root{
+  --fond:#06120D; --vert:#0B3B2A; --vert-2:#14513A; --menthe:#7FE0B5;
+  --or:#C9A227; --or-clair:#E9D68A; --erreur:#FF8A7A;
+  --titre:'Bricolage Grotesque','Trebuchet MS',sans-serif;
+  --texte:'Source Sans 3','Segoe UI',Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px;color-scheme:dark}
+body{margin:0;font-family:var(--texte);font-size:18px;line-height:1.55;color:#E4EEE8;background:var(--fond);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:rgba(201,162,39,.4)}
+:focus-visible{outline:3px solid var(--or-clair);outline-offset:3px;border-radius:6px}
+.wrap{width:min(820px,100% - 32px);margin-inline:auto}
+
+/* Fond animé */
+.fond{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--fond)}
+.fond i{position:absolute;border-radius:50%;opacity:.55;will-change:transform}
+.fond i:nth-child(1){width:60vmax;height:60vmax;left:-20vmax;top:-20vmax;background:radial-gradient(circle,#14513A,transparent 65%);animation:d1 26s ease-in-out infinite alternate}
+.fond i:nth-child(2){width:46vmax;height:46vmax;right:-14vmax;top:30vh;background:radial-gradient(circle,rgba(201,162,39,.4),transparent 65%);animation:d2 32s ease-in-out infinite alternate}
+.fond i:nth-child(3){width:50vmax;height:50vmax;left:10vw;bottom:-28vmax;background:radial-gradient(circle,#0f5a40,transparent 65%);animation:d3 30s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(18vmax,12vmax) scale(1.15)}}
+@keyframes d2{to{transform:translate(-16vmax,10vmax) scale(.9)}}
+@keyframes d3{to{transform:translate(14vmax,-10vmax) scale(1.2)}}
+
+/* En-tête fixe + progression */
+.entete{position:sticky;top:0;z-index:50;background:rgba(6,18,13,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08);animation:descend .7s var(--ease) both}
+.entete .wrap{width:min(1120px,100% - 32px);display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.marque{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 18px var(--titre);color:#fff}
+.marque svg{width:28px;height:28px}
+.entete .retour{color:rgba(255,255,255,.75);text-decoration:none;font-weight:600;font-size:16px;padding:8px 14px;border-radius:999px}
+.entete .retour:hover{color:#fff;background:rgba(255,255,255,.08)}
+.pct{font:700 15px var(--texte);color:var(--or-clair);font-variant-numeric:tabular-nums;white-space:nowrap}
+.av{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:rgba(255,255,255,.08)}
+.av i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--menthe),var(--or));transition:width .5s var(--ease)}
+@media (max-width:560px){.entete .retour{display:none}}
+@keyframes descend{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+@keyframes monte{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* Titre */
+.titre{padding:64px 0 24px}
+.titre h1{font:800 clamp(36px,7vw,64px)/1 var(--titre);letter-spacing:-.03em;margin:0 0 16px;color:#fff;animation:monte .9s var(--ease) .15s both}
+.titre h1 .brille{background-image:linear-gradient(90deg,#7FE0B5 0%,#14513A 14%,#E9D68A 34%,#C9A227 50%,#14513A 66%,#7FE0B5 86%,#7FE0B5 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:brille 6s linear infinite;padding-bottom:.1em}
+@keyframes brille{to{background-position:-200% center}}
+.titre p{margin:0;color:rgba(228,238,232,.75);max-width:58ch;animation:monte .9s var(--ease) .3s both}
+.titre .dates{color:var(--or-clair);font-weight:600;margin-top:12px}
+
+/* Formulaire : cartes en verre */
+form{padding:16px 0 80px}
+fieldset{position:relative;margin:0 0 24px;padding:30px 28px 12px;min-width:0;border:0;border-radius:24px;background:rgba(255,255,255,.04);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:inset 0 1px 1px rgba(255,255,255,.12)}
+fieldset::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.2px;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,.06) 30%,rgba(255,255,255,0) 55%,rgba(255,255,255,.06) 80%,rgba(255,255,255,.3));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.js fieldset{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js fieldset.in{opacity:1;transform:none}
+@media (max-width:700px){fieldset{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,.06);padding:26px 20px 8px}}
+legend{font:800 28px/1.1 var(--titre);color:#fff;padding:0;float:left;width:100%;margin-bottom:8px;letter-spacing:-.01em}
+legend + *{clear:both}
+.aide{margin:0 0 22px;color:rgba(228,238,232,.65);font-size:16px}
+.champ{margin-bottom:22px}
+.champ > label,.champ > .lbl{display:block;font-weight:700;color:#fff;margin-bottom:8px}
+.opt{font-weight:400;color:rgba(228,238,232,.6)}
+input[type=text],input[type=tel],input[type=email],input[type=date],select,textarea{
+  width:100%;min-height:50px;padding:10px 16px;font:inherit;color:#fff;
+  background:rgba(0,0,0,.3);border:1.5px solid rgba(255,255,255,.18);border-radius:12px;transition:border-color .25s,background-color .25s,box-shadow .25s}
+input:hover,select:hover,textarea:hover{border-color:rgba(255,255,255,.34)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--or);background:rgba(0,0,0,.45);box-shadow:0 0 0 4px rgba(201,162,39,.2)}
+select option,select optgroup{background:#0B1F17;color:#fff}
+textarea{min-height:150px;resize:vertical}
+input[type=radio],input[type=checkbox]{width:22px;height:22px;accent-color:var(--or);margin:0;flex:none}
+.grille{display:grid;gap:0 20px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:700px){.grille{grid-template-columns:1fr 1fr}}
+
+.choix{display:flex;flex-wrap:wrap;gap:10px}
+.choix label,.liste label{display:flex;align-items:center;gap:12px;min-height:50px;padding:8px 18px;background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.16);border-radius:999px;cursor:pointer;font-weight:600;color:#E4EEE8;transition:all .25s var(--ease)}
+.liste label{border-radius:16px;align-items:flex-start;font-weight:400;padding:14px 18px}
+.choix label:hover,.liste label:hover{background:rgba(255,255,255,.1)}
+.choix label:has(input:checked),.liste label:has(input:checked){border-color:var(--or);background:rgba(201,162,39,.15);color:#fff}
+.liste{display:grid;gap:10px}
+.liste small{display:block;color:rgba(228,238,232,.6)}
+.engagements label{align-items:flex-start}
+
+.sous{background:rgba(0,0,0,.28);border-left:5px solid var(--or);border-radius:0 16px 16px 0;padding:22px;margin:0 0 22px;animation:monte .6s var(--ease) both}
+.sous h3{font:700 22px var(--titre);margin:0 0 16px;color:#fff}
+.sous .champ:last-child{margin-bottom:0}
+[hidden]{display:none !important}
+.alerte{background:rgba(255,120,100,.13);border-left:5px solid var(--erreur);border-radius:0 12px 12px 0;padding:14px 18px;margin:0 0 22px;color:#FFD9D2;font-weight:600}
+.err{color:var(--erreur);font-size:15px;font-weight:600;margin:8px 0 0}
+.invalide{border-color:var(--erreur) !important}
+input[type=file]{width:100%;padding:12px;background:rgba(0,0,0,.25);border:1.5px dashed rgba(255,255,255,.3);border-radius:12px;font:inherit;color:rgba(228,238,232,.8);cursor:pointer}
+input[type=file]::file-selector-button{margin-right:14px;padding:8px 16px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font:600 15px var(--texte);cursor:pointer}
+input[type=file]:hover{border-color:var(--or)}
+
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 34px;background:var(--or);color:#11200A;font:700 19px var(--texte);border:0;border-radius:999px;cursor:pointer;text-decoration:none;transition:transform .25s var(--ease),background-color .25s,box-shadow .25s}
+.cta:hover{background:var(--or-clair);box-shadow:0 10px 36px rgba(201,162,39,.35)}
+.cta:active{transform:scale(.98)}
+.cta:disabled{opacity:.6;cursor:wait}
+.envoi{padding:30px 28px;border-radius:24px;background:rgba(255,255,255,.05);box-shadow:inset 0 1px 1px rgba(255,255,255,.14);border:1px solid rgba(201,162,39,.35)}
+.envoi p{margin:0 0 18px;color:rgba(228,238,232,.8)}
+.envoi .alerte{color:#FFD9D2}
+.merci{margin-top:22px;padding:22px 24px;border-radius:16px;background:rgba(127,224,181,.14);border-left:5px solid var(--menthe);color:#fff;font-weight:600}
+footer{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;font-size:15px;color:rgba(228,238,232,.6)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;transition-delay:0s !important;scroll-behavior:auto !important}
+  .js fieldset{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="fond" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="entete">
+  <div class="wrap">
+    <a class="marque" href="landing-motion.html" aria-label="Retour à la présentation">
+      <svg viewBox="0 0 256 256" fill="#C9A227" aria-hidden="true"><path d="M0 128c70.7 0 128 57.3 128 128H64c0-35.3-28.7-64-64-64zM256 192c-35.3 0-64 28.7-64 64h-64c0-70.7 57.3-128 128-128zM128 0c0 70.7-57.3 128-128 128V64c35.3 0 64-28.7 64-64zM192 0c0 35.3 28.7 64 64 64v64c-70.7 0-128-57.3-128-128z"/></svg>
+      UNACOIS YEESSAL
+    </a>
+    <span class="pct" id="pct" role="status" aria-live="off">0 % complété</span>
+    <a class="retour" href="index.html">Retour à la présentation</a>
+  </div>
+  <div class="av" aria-hidden="true"><i id="avi"></i></div>
+</header>
+
+<div class="titre">
+  <div class="wrap">
+    <h1>Formulaire de <span class="brille">candidature</span></h1>
+    <p>313 bourses d'études à Nioro du Rip. Trois ans de bourse, une seule candidature par personne.</p>
+    <p class="dates">Dépôt jusqu'au 25 octobre 2026 à 23 h 59. Les champs marqués d'un astérisque (*) sont obligatoires.</p>
+  </div>
+</div>
+
+<main class="wrap">
+<form id="form" novalidate enctype="multipart/form-data" method="post" action="#">
+
+  <!-- SECTION 1 -->
+  <fieldset id="s1">
+    <legend>1. Éligibilité</legend>
+    <p class="aide">Si vous répondez « Non » à l'une des deux premières questions, le dossier n'est pas recevable.</p>
+    <div class="champ">
+      <span class="lbl">Avez-vous 16 ans révolus au 22 septembre 2026 ? *</span>
+      <div class="choix">
+        <label><input type="radio" name="age16" value="Oui" required> Oui</label>
+        <label><input type="radio" name="age16" value="Non"> Non</label>
+      </div>
+    </div>
+    <div class="champ">
+      <span class="lbl">Êtes-vous originaire ou résident(e) de Nioro du Rip ? *</span>
+      <div class="choix">
+        <label><input type="radio" name="nioro" value="Oui" required> Oui</label>
+        <label><input type="radio" name="nioro" value="Non"> Non</label>
+      </div>
+    </div>
+    <p class="alerte" id="irrecevable" role="alert" hidden>Votre dossier n'est pas recevable : les deux premières conditions sont obligatoires.</p>
+    <div class="champ">
+      <span class="lbl">Votre statut *</span>
+      <div class="choix">
+        <label><input type="radio" name="statut" value="Nouveau bachelier" required> Nouveau bachelier</label>
+        <label><input type="radio" name="statut" value="Étudiant déjà inscrit"> Étudiant déjà inscrit</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- SECTION 2 -->
+  <fieldset id="s2">
+    <legend>2. Identité</legend>
+    <p class="aide">Remplissez comme sur votre pièce d'identité.</p>
+    <div class="grille">
+      <div class="champ"><label for="nom">Nom de famille *</label><input type="text" id="nom" name="nom" autocomplete="family-name" required></div>
+      <div class="champ"><label for="prenoms">Prénom(s) *</label><input type="text" id="prenoms" name="prenoms" autocomplete="given-name" required></div>
+    </div>
+    <div class="champ">
+      <span class="lbl">Sexe *</span>
+      <div class="choix">
+        <label><input type="radio" name="sexe" value="Homme" required> Homme</label>
+        <label><input type="radio" name="sexe" value="Femme"> Femme</label>
+      </div>
+    </div>
+    <div class="grille">
+      <div class="champ"><label for="naissance">Date de naissance *</label><input type="date" id="naissance" name="naissance" autocomplete="bday" required></div>
+      <div class="champ"><label for="lieu">Lieu de naissance *</label><input type="text" id="lieu" name="lieu_naissance" required></div>
+      <div class="champ"><label for="whatsapp">Téléphone WhatsApp *</label><input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" inputmode="tel" required></div>
+      <div class="champ"><label for="tel_parent">Téléphone du parent ou garant *</label><input type="tel" id="tel_parent" name="tel_parent" inputmode="tel" required></div>
+      <div class="champ"><label for="email">E-mail *</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+      <div class="champ"><label for="cni">N° de CNI ou de passeport *</label><input type="text" id="cni" name="cni" required></div>
+    </div>
+  </fieldset>
+
+  <!-- SECTION 3 -->
+  <fieldset id="s3">
+    <legend>3. Lien avec Nioro du Rip</legend>
+    <div class="champ">
+      <span class="lbl">Votre lien avec le département *</span>
+      <div class="choix">
+        <label><input type="radio" name="lien" value="Né(e) dans le département" required> Né(e) dans le département</label>
+        <label><input type="radio" name="lien" value="Résident(e)"> Résident(e)</label>
+        <label><input type="radio" name="lien" value="Les deux"> Les deux</label>
+      </div>
+    </div>
+    <div class="champ">
+      <span class="lbl">Arrondissement *</span>
+      <div class="choix">
+        <label><input type="radio" name="arrondissement" value="Médina Sabakh" required> Médina Sabakh</label>
+        <label><input type="radio" name="arrondissement" value="Paoskoto"> Paoskoto</label>
+        <label><input type="radio" name="arrondissement" value="Wack Ngouna"> Wack Ngouna</label>
+        <label><input type="radio" name="arrondissement" value="Commune urbaine"> Commune urbaine</label>
+      </div>
+    </div>
+    <div class="grille">
+      <div class="champ">
+        <label for="commune">Commune *</label>
+        <select id="commune" name="commune" required>
+          <option value="">Choisir une commune</option>
+          <option>Dabaly</option><option>Darou Salam</option><option>Gainthe Kaye</option><option>Kayemor</option>
+          <option>Keur Maba Diakhou</option><option>Keur Madiabel</option><option>Keur Mandongo</option>
+          <option>Médina Sabakh</option><option>Ndramé Escale</option><option>Ngayène Sabakh</option>
+          <option>Nioro du Rip</option><option>Paoskoto</option><option>Porokhane</option>
+          <option>Taïba Niassène</option><option>Wack Ngouna</option>
+        </select>
+      </div>
+      <div class="champ"><label for="quartier">Quartier ou village *</label><input type="text" id="quartier" name="quartier" required></div>
+    </div>
+  </fieldset>
+
+  <!-- SECTION 4 -->
+  <fieldset id="s4">
+    <legend>4. Parcours</legend>
+    <div class="grille">
+      <div class="champ">
+        <label for="diplome">Dernier diplôme *</label>
+        <select id="diplome" name="diplome" required>
+          <option value="">Choisir</option><option>Baccalauréat</option><option>Licence</option><option>Master</option><option>BTS / DUT</option><option>Autre</option>
+        </select>
+      </div>
+      <div class="champ">
+        <label for="annee">Année d'obtention *</label>
+        <select id="annee" name="annee" required>
+          <option value="">Choisir</option><option>2026</option><option>2025</option><option>2024</option><option>2023 ou avant</option>
+        </select>
+      </div>
+      <div class="champ"><label for="etab_diplome">Établissement du diplôme *</label><input type="text" id="etab_diplome" name="etab_diplome" required></div>
+      <div class="champ">
+        <label for="mention">Mention *</label>
+        <select id="mention" name="mention" required>
+          <option value="">Choisir</option><option>Passable</option><option>Assez bien</option><option>Bien</option><option>Très bien</option>
+        </select>
+      </div>
+    </div>
+
+    <p class="aide" id="invite-statut">Choisissez votre statut dans la section 1 pour afficher la suite.</p>
+
+    <div class="sous" id="p4a" hidden>
+      <h3>Nouveau bachelier</h3>
+      <div class="grille">
+        <div class="champ">
+          <label for="session">Session du bac *</label>
+          <select id="session" name="session_bac" data-req>
+            <option value="">Choisir</option><option>2026</option><option>2025</option><option>2024 ou avant</option>
+          </select>
+        </div>
+        <div class="champ"><label for="lycee">Lycée ou centre d'examen *</label><input type="text" id="lycee" name="lycee" data-req></div>
+      </div>
+    </div>
+
+    <div class="sous" id="p4b" hidden>
+      <h3>Étudiant déjà inscrit</h3>
+      <div class="grille">
+        <div class="champ"><label for="univ">Université ou école actuelle *</label><input type="text" id="univ" name="universite" data-req></div>
+        <div class="champ"><label for="filiere_act">Filière suivie aujourd'hui *</label><input type="text" id="filiere_act" name="filiere_actuelle" data-req></div>
+        <div class="champ">
+          <label for="niveau">Niveau en 2026-2027 *</label>
+          <select id="niveau" name="niveau" data-req>
+            <option value="">Choisir</option><option>L1</option><option>L2</option><option>L3</option><option>M1</option><option>M2</option><option>BTS</option><option>Autre</option>
+          </select>
+        </div>
+        <div class="champ">
+          <span class="lbl">Avez-vous déjà perçu une autre bourse ? *</span>
+          <div class="choix">
+            <label><input type="radio" name="autre_bourse" value="Non" data-req> Non</label>
+            <label><input type="radio" name="autre_bourse" value="Oui"> Oui</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- SECTION 5 -->
+  <fieldset id="s5">
+    <legend>5. Établissement et vœux</legend>
+    <p class="aide">Un seul établissement et trois vœux de filière, dans l'ordre de votre préférence. Vérifiez auprès de l'organisateur que la filière existe dans l'établissement choisi.</p>
+    <div class="champ">
+      <span class="lbl">Établissement souhaité *</span>
+      <div class="liste">
+        <label><input type="radio" name="etablissement" value="AMDI" required><span>AMDI<small>African Millennium Development Institute</small></span></label>
+        <label><input type="radio" name="etablissement" value="ISCA"><span>ISCA<small>Institut Supérieur de Commerce et d'Administration des Affaires</small></span></label>
+        <label><input type="radio" name="etablissement" value="HECM"><span>HECM<small>Haute École de Commerce et de Management</small></span></label>
+        <label><input type="radio" name="etablissement" value="ISGCO"><span>ISGCO<small>Institut Supérieur de Gestion et de Communication</small></span></label>
+        <label><input type="radio" name="etablissement" value="ISIF Business School"><span>ISIF Business School</span></label>
+        <label><input type="radio" name="etablissement" value="IFAGE"><span>IFAGE<small>Assurance et Gestion des Entreprises</small></span></label>
+      </div>
+    </div>
+    <div class="champ"><label for="voeu1">1er vœu de filière *</label><select id="voeu1" name="voeu1" class="voeu" required></select></div>
+    <div class="champ"><label for="voeu2">2e vœu de filière *</label><select id="voeu2" name="voeu2" class="voeu" required></select></div>
+    <div class="champ"><label for="voeu3">3e vœu de filière *</label><select id="voeu3" name="voeu3" class="voeu" required></select>
+      <p class="err" id="err-voeux" hidden>Choisissez trois filières différentes.</p></div>
+    <div class="champ">
+      <span class="lbl">Si le 1er vœu est complet, acceptez-vous votre 2e ou 3e vœu ? *</span>
+      <div class="choix">
+        <label><input type="radio" name="autre_voeu" value="Oui" required> Oui</label>
+        <label><input type="radio" name="autre_voeu" value="Non"> Non</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- SECTION 6 -->
+  <fieldset id="s6">
+    <legend>6. Projet</legend>
+    <p class="aide">Quelques lignes suffisent.</p>
+    <div class="champ"><label for="pourquoi">Pourquoi cette filière et cet établissement ? *</label><textarea id="pourquoi" name="pourquoi" required></textarea></div>
+    <div class="champ"><label for="metier">Quel métier visez-vous ? En quoi cela sert-il le département de Nioro du Rip ? *</label><textarea id="metier" name="metier" required></textarea></div>
+    <div class="champ">
+      <span class="lbl">Situation sociale <span class="opt">(facultatif)</span></span>
+      <div class="liste" id="social">
+        <label><input type="checkbox" name="social" value="Orphelin(e)"> Orphelin(e)</label>
+        <label><input type="checkbox" name="social" value="Famille à faible revenu"> Famille à faible revenu</label>
+        <label><input type="checkbox" name="social" value="Chef de famille"> Chef de famille</label>
+        <label><input type="checkbox" name="social" value="Situation de handicap"> Situation de handicap</label>
+        <label><input type="checkbox" name="social" value="Ne souhaite pas préciser" id="social-non"> Je ne souhaite pas préciser</label>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- SECTION 7 -->
+  <fieldset id="s7">
+    <legend>7. Pièces et engagements</legend>
+    <p class="aide">Joignez des scans ou photos lisibles (PDF, JPG ou PNG).</p>
+    <div class="champ"><label for="f_id">Pièce d'identité (CNI ou passeport) *</label><input type="file" id="f_id" name="piece_identite" accept=".pdf,.jpg,.jpeg,.png" required></div>
+    <div class="champ"><label for="f_res">Justificatif de résidence dans le département de Nioro du Rip *</label><input type="file" id="f_res" name="justificatif_residence" accept=".pdf,.jpg,.jpeg,.png" required></div>
+    <div class="champ"><label for="f_dip">Diplôme ou bac, ou certificat de scolarité ou d'inscription *</label><input type="file" id="f_dip" name="diplome_scolarite" accept=".pdf,.jpg,.jpeg,.png" required></div>
+    <div class="champ"><label for="f_rel">Relevés de notes *</label><input type="file" id="f_rel" name="releves_notes" accept=".pdf,.jpg,.jpeg,.png" required></div>
+    <div class="champ" id="bloc-cv"><label for="f_cv">CV <span class="opt" id="cv-note">(si vous êtes déjà étudiant)</span></label><input type="file" id="f_cv" name="cv" accept=".pdf,.doc,.docx"></div>
+
+    <div class="champ">
+      <span class="lbl">Engagements : cochez les 5 cases *</span>
+      <div class="liste engagements">
+        <label><input type="checkbox" name="eng" required><span>Je certifie que les informations sont exactes. Toute fausse déclaration peut entraîner le rejet ou le retrait de la bourse.</span></label>
+        <label><input type="checkbox" name="eng" required><span>Je reconnais que l'envoi de ce formulaire ne vaut pas attribution automatique d'une bourse.</span></label>
+        <label><input type="checkbox" name="eng" required><span>Si je suis retenu(e), j'accepte une bourse de 3 ans sous conditions académiques et administratives.</span></label>
+        <label><input type="checkbox" name="eng" required><span>Je m'engage à m'inscrire, suivre les cours, respecter le règlement et passer les examens.</span></label>
+        <label><input type="checkbox" name="eng" required><span>J'accepte le suivi UNACOIS YEESSAL / établissement et le traitement de mes données pour cet appel uniquement.</span></label>
+      </div>
+    </div>
+
+    <div class="grille">
+      <div class="champ"><label for="fait_a">Fait à *</label><input type="text" id="fait_a" name="fait_a" required></div>
+      <div class="champ"><label for="date_sig">Date *</label><input type="date" id="date_sig" name="date_signature" required></div>
+      <div class="champ"><label for="sig">Signature du candidat (nom et prénom) *</label><input type="text" id="sig" name="signature_candidat" required></div>
+      <div class="champ"><label for="parent">Parent ou garant (nom et prénom) *</label><input type="text" id="parent" name="parent_garant" required></div>
+      <div class="champ"><label for="parent_tel">Téléphone du parent ou garant *</label><input type="tel" id="parent_tel" name="parent_garant_tel" inputmode="tel" required></div>
+    </div>
+  </fieldset>
+
+  <input type="text" name="site_web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+  <div class="envoi">
+    <p class="alerte" id="erreur-globale" role="alert" hidden></p>
+    <p>En envoyant ce formulaire, vous confirmez que toutes les informations sont exactes. Vous ne pouvez déposer qu'une seule candidature.</p>
+    <button class="cta" type="submit" id="btn">Envoyer ma candidature</button>
+  </div>
+  <p class="merci" id="merci" role="status" hidden></p>
+</form>
+</main>
+
+<footer>
+  <div class="wrap">UNACOIS YEESSAL, département de Nioro du Rip, 2026. Contact : candidaturebourse.nioro@gmail.com</div>
+</footer>
+
+<script>
+/* ===== Réglage : adresse du service qui reçoit les candidatures =====
+   Collez ici l'URL de l'application web Google Apps Script (finissant par /exec).
+   Si ENDPOINT est vide, le bouton ouvre un e-mail pré-rempli vers MAIL_DEST
+   (les pièces jointes doivent alors être ajoutées à la main). */
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbwAcqw4DtDCTXnMQhfbr3VKKhwQHwA1Zue_NmCU7XSiXwlWWqK0siGT73XdafpnB5gFVg/exec";
+const MAIL_DEST = "candidaturebourse.nioro@gmail.com";
+
+const FILIERES = {
+  "Licence et Master":["Agrobusiness","Anglais","Audit et Contrôle de Gestion","Commerce International et Logistique","Comptabilité – Gestion","Douane Transit","Droit des Affaires et Fiscalité","Génie Civil","Génie Pétrolier","Gestion de Projet","GRH","Informatique de Gestion","Ingénierie Financière","Journalisme et Communication","Management des Entreprises Agricoles","Management du Tourisme","Management et Administration des Entreprises","Management et Administration Publique","Marketing – Communication","QHSE","Relations Internationales","Réseaux Télécommunication","Science Politique","Techniques Comptables et Fiscales"].map(f=>["LM",f]),
+  "Licences professionnelles":["Administration et Gestion des Entreprises","GRH","Banque Finance et Assurance","Communication et Négociation Commerciale","Qualité et Génie Agroalimentaire","Finance et Contrôle de Gestion","Génie Informatique","Transport et Logistique","Journalisme","Télécommunications"].map(f=>["LP",f]),
+  "Informatique":["Administration Réseaux","Marketing Digital","Infographie – Web","IT Essentiels / Maintenance","Maintenance et Réseaux"].map(f=>["INFO",f]),
+  "Santé":["Infirmier d'État","Sage-Femme d'État","Assistant Infirmier","Délégation Médicale","Vendeur en Pharmacie"].map(f=>["SANTE",f])
+};
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const form = $("#form");
+
+/* Vœux */
+$$(".voeu").forEach(sel=>{
+  sel.add(new Option("Choisir une filière",""));
+  Object.entries(FILIERES).forEach(([groupe,liste])=>{
+    const og=document.createElement("optgroup"); og.label=groupe;
+    liste.forEach(([p,f])=>og.appendChild(new Option(f+" ("+p+")",p+" — "+f)));
+    sel.appendChild(og);
+  });
+});
+
+/* Éligibilité */
+function majEligibilite(){
+  const non = ["age16","nioro"].some(n=>{const r=form.querySelector('input[name="'+n+'"]:checked');return r&&r.value==="Non"});
+  $("#irrecevable").hidden=!non;
+  return !non;
+}
+$$('input[name="age16"],input[name="nioro"]').forEach(r=>r.addEventListener("change",majEligibilite));
+
+/* Statut : 4A ou 4B */
+function majStatut(){
+  const v=(form.querySelector('input[name="statut"]:checked')||{}).value;
+  const a=v==="Nouveau bachelier", b=v==="Étudiant déjà inscrit";
+  $("#p4a").hidden=!a; $("#p4b").hidden=!b; $("#invite-statut").hidden=!!v;
+  $$("#p4a [data-req]").forEach(e=>e.required=a);
+  $$("#p4b [data-req]").forEach(e=>e.required=b);
+  $("#f_cv").required=b;
+  $("#cv-note").textContent=b?"*":"(si vous êtes déjà étudiant)";
+}
+$$('input[name="statut"]').forEach(r=>r.addEventListener("change",majStatut));
+majStatut();
+
+/* Situation sociale : « ne souhaite pas préciser » est exclusif */
+$$("#social input").forEach(c=>c.addEventListener("change",()=>{
+  if(!c.checked)return;
+  if(c.id==="social-non") $$("#social input").forEach(o=>{if(o!==c)o.checked=false});
+  else $("#social-non").checked=false;
+}));
+
+/* Vérifications */
+function voeuxOk(){
+  const v=$$(".voeu").map(s=>s.value);
+  const dup=v.every(Boolean)&&new Set(v).size<3;
+  $("#err-voeux").hidden=!dup; return !dup;
+}
+$$(".voeu").forEach(s=>s.addEventListener("change",voeuxOk));
+
+function ageOk(){
+  const el=$("#naissance"); if(!el.value) return true;
+  const ok=el.value<="2010-09-22";
+  el.setCustomValidity(ok?"":"Vous devez avoir 16 ans révolus au 22 septembre 2026.");
+  return ok;
+}
+$("#naissance").addEventListener("change",ageOk);
+
+function resume(){
+  const d=new FormData(form), lignes=[];
+  for(const [k,v] of d.entries()){ if(!(v instanceof File) && v) lignes.push(k+" : "+v); }
+  return lignes.join("\n");
+}
+
+/* ===== Préparation de l'envoi (champs + fichiers en base64) ===== */
+function lireBase64(f){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(",")[1]);r.onerror=()=>rej(r.error);r.readAsDataURL(f);});}
+async function construire(){
+  const champs={};
+  for(const [k,v] of new FormData(form).entries()){ if(v instanceof File) continue; champs[k]=(k in champs)?champs[k]+", "+v:v; }
+  const fichiers=[];
+  for(const inp of form.querySelectorAll('input[type=file]')){
+    const f=inp.files&&inp.files[0]; if(!f) continue;
+    fichiers.push({champ:inp.name,nom:f.name,type:f.type||"application/octet-stream",data:await lireBase64(f)});
+  }
+  return {champs,fichiers};
+}
+
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const err=$("#erreur-globale"); err.hidden=true;
+  $$(".invalide").forEach(x=>x.classList.remove("invalide"));
+  if(!majEligibilite()){ $("#irrecevable").scrollIntoView({block:"center"}); return; }
+  ageOk();
+  const ok=form.checkValidity() & voeuxOk();
+  if(!ok){
+    const premier=form.querySelector(":invalid")||$("#err-voeux");
+    $$(":invalid").forEach(x=>x.classList.add("invalide"));
+    err.textContent="Certains champs sont à corriger. Vérifiez les champs marqués en rouge et cochez les 5 engagements.";
+    err.hidden=false;
+    if(premier){premier.scrollIntoView({block:"center"}); if(premier.focus)premier.focus({preventScroll:true});}
+    return;
+  }
+  const btn=$("#btn"), merci=$("#merci");
+  if(ENDPOINT){
+    const liste=[...form.querySelectorAll('input[type=file]')].flatMap(i=>[...(i.files||[])]);
+    if(liste.some(f=>f.size>5*1024*1024)||liste.reduce((a,f)=>a+f.size,0)>20*1024*1024){
+      err.textContent="Un fichier dépasse 5 Mo, ou le total dépasse 20 Mo. Réduisez la taille de vos scans (PDF, JPG ou PNG).";
+      err.hidden=false; return;
+    }
+    btn.disabled=true; btn.textContent="Envoi en cours…";
+    try{
+      const r=await fetch(ENDPOINT,{method:"POST",body:JSON.stringify(await construire())});
+      const rep=await r.json();
+      if(!rep.ok){const e2=new Error(rep.erreur||"Erreur");e2.serveur=true;throw e2;}
+      form.hidden=true; merci.hidden=false;
+      merci.textContent="Votre candidature a bien été reçue"+(rep.reference&&rep.reference!=="-"?" (référence "+rep.reference+")":"")+". Un accusé de réception est envoyé à votre adresse e-mail. Conservez-le comme preuve de dépôt. La sélection aura lieu le 26 octobre 2026.";
+      merci.scrollIntoView({block:"center"});
+    }catch(ex){
+      err.textContent=ex.serveur?ex.message:"L'envoi a échoué. Vérifiez votre connexion et réessayez.";
+      err.hidden=false; btn.disabled=false; btn.textContent="Envoyer ma candidature";
+      err.scrollIntoView({block:"center"});
+    }
+  }else{
+    const objet="Candidature bourse Nioro du Rip — "+$("#nom").value.toUpperCase()+" "+$("#prenoms").value;
+    const corps="Bonjour,\n\nVoici ma candidature.\n\n"+resume()+"\n\nPièces jointes à ajouter à ce message : pièce d'identité, justificatif de résidence, diplôme ou scolarité, relevés de notes, CV si étudiant.";
+    window.location.href="mailto:"+MAIL_DEST+"?subject="+encodeURIComponent(objet)+"&body="+encodeURIComponent(corps);
+    merci.hidden=false;
+    merci.textContent="Votre application de messagerie s'ouvre avec le message pré-rempli. Ajoutez vos pièces jointes avant d'envoyer, au plus tard le 25 octobre 2026 à 23 h 59.";
+  }
+});
+
+/* ===== Révélation des sections et progression ===== */
+(function(){
+  const fs=$$("fieldset");
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");ro.unobserve(e.target)}}),{threshold:.08});
+  fs.forEach(f=>ro.observe(f));
+
+  function avance(){
+    const els=[...form.querySelectorAll("input,select,textarea")].filter(e=>e.required&&!e.closest("[hidden]"));
+    const groupes=new Map();
+    els.forEach(e=>{
+      const k=e.type==="radio"?"r:"+e.name:(e.type==="checkbox"?"c:"+(e.closest("label").textContent.trim().slice(0,30)):"i:"+(e.id||e.name));
+      let ok;
+      if(e.type==="radio") ok=!!form.querySelector('input[name="'+e.name+'"]:checked');
+      else if(e.type==="checkbox") ok=e.checked;
+      else if(e.type==="file") ok=e.files&&e.files.length>0;
+      else ok=e.value.trim()!=="";
+      groupes.set(k,ok);
+    });
+    const total=groupes.size, fait=[...groupes.values()].filter(Boolean).length;
+    const p=total?Math.round(fait/total*100):0;
+    $("#pct").textContent=p+" % complété"; $("#avi").style.width=p+"%";
+  }
+  form.addEventListener("input",avance); form.addEventListener("change",avance);
+  avance();
+})();
+</script>
+</body>
+</html>

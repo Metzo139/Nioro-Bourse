@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>313 bourses d'études à Nioro du Rip</title>
+<meta name="description" content="313 bourses de 3 ans pour les jeunes de Nioro du Rip. Candidatures jusqu'au 25 octobre 2026.">
+<meta name="theme-color" content="#06120D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+:root{--fond:#06120D;--or:#C9A227;--or-clair:#E9D68A;--titre:'Bricolage Grotesque','Trebuchet MS',sans-serif;--texte:'Source Sans 3','Segoe UI',Arial,sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:var(--texte);font-size:19px;line-height:1.6;color:#E4EEE8;background:var(--fond);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100svh;position:relative;overflow-x:hidden}
+body::before,body::after{content:'';position:fixed;z-index:-1;border-radius:50%;pointer-events:none}
+body::before{width:70vmax;height:70vmax;left:-25vmax;top:-30vmax;background:radial-gradient(circle,rgba(20,81,58,.9),transparent 65%)}
+body::after{width:55vmax;height:55vmax;right:-20vmax;bottom:-25vmax;background:radial-gradient(circle,rgba(201,162,39,.35),transparent 65%)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--or-clair);outline-offset:3px;border-radius:6px}
+
+header{padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.marque{font:800 18px var(--titre);color:#fff;letter-spacing:.01em}
+header span{font-size:15px;color:var(--or-clair);max-width:44ch;text-align:right}
+@media (max-width:640px){header span{text-align:left}}
+
+main{flex:1;display:flex;align-items:center;padding:24px}
+.duo{width:min(1120px,100%);margin:0 auto;display:grid;gap:40px;grid-template-columns:minmax(0,1fr);align-items:center}
+@media (min-width:960px){.duo{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px}}
+.contenu{min-width:0}
+.photo{margin:0;position:relative;overflow:hidden;border-radius:28px;aspect-ratio:4/3;max-height:560px;width:100%;background:linear-gradient(160deg,#14513A,#0B3B2A 70%);border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 80px rgba(0,0,0,.45);animation:monte 1s var(--ease) .3s both}
+@media (min-width:960px){.photo{aspect-ratio:4/5}}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;animation:zoom 2.2s var(--ease) .3s both}
+@keyframes zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,18,13,0) 60%,rgba(6,18,13,.55));pointer-events:none}
+.photo .vide{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:rgba(233,214,138,.8);text-align:center}
+.photo .vide svg{width:72px;height:72px}
+.photo .vide small{opacity:.7}
+.photo.sans .vide{display:flex}
+.date{display:inline-block;padding:7px 16px;border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:15px;font-weight:600;color:var(--or-clair);margin-bottom:24px}
+h1{font:800 clamp(38px,6vw,68px)/1 var(--titre);letter-spacing:-.03em;margin:0 0 22px;color:#fff}
+h1 span{display:block;background:linear-gradient(90deg,#7FE0B5,#E9D68A 55%,#C9A227);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-bottom:.08em}
+p.sous{max-width:46ch;margin:0 0 34px;color:rgba(228,238,232,.78)}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
+.cta{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 34px;border-radius:999px;background:var(--or);color:#11200A;font:700 19px var(--texte);text-decoration:none;transition:background-color .25s,box-shadow .25s,transform .25s var(--ease)}
+.cta:hover{background:var(--or-clair);box-shadow:0 10px 36px rgba(201,162,39,.35)}
+.cta:active{transform:scale(.98)}
+.lien{color:rgba(228,238,232,.8);font-weight:600;text-underline-offset:5px}
+.lien:hover{color:#fff}
+.faits{display:flex;flex-wrap:wrap;gap:12px 40px;margin:48px 0 0;padding:28px 0 0;border-top:1px solid rgba(255,255,255,.12);list-style:none}
+.faits li{min-width:120px}
+.faits b{display:block;font:800 34px/1.1 var(--titre);color:var(--or-clair)}
+.faits span{font-size:16px;color:rgba(228,238,232,.65)}
+
+footer{padding:20px 24px;font-size:15px;color:rgba(228,238,232,.55)}
+
+.contenu > *{animation:monte .9s var(--ease) both}
+.contenu > :nth-child(2){animation-delay:.12s}.contenu > :nth-child(3){animation-delay:.24s}
+.contenu > :nth-child(4){animation-delay:.36s}.contenu > :nth-child(5){animation-delay:.48s}
+@keyframes monte{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.contenu > *{animation:none}.cta{transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="marque">UNACOIS YEESSAL</div>
+  <span>Initiative de Dr. Aliou Gori DIOUF, Ministre de l'environnement et de la transition écologique</span>
+</header>
+
+<main>
+  <div class="duo">
+  <div class="contenu">
+    <div class="date">Candidatures jusqu'au 25 octobre 2026, 23 h 59</div>
+    <h1>313 bourses d'études <span>pour Nioro du Rip</span></h1>
+    <p class="sous">Trois ans de bourse pour étudier dans l'un des six établissements partenaires. Une seule candidature par personne.</p>
+    <div class="actions">
+      <a class="cta" href="formulaire-motion.html">Remplir le formulaire</a>
+    </div>
+    <ul class="faits">
+      <li><b>313</b><span>bourses</span></li>
+      <li><b>3 ans</b><span>de bourse</span></li>
+      <li><b>6</b><span>établissements</span></li>
+      <li><b>26 oct.</b><span>sélection</span></li>
+    </ul>
+  </div>
+  <figure class="photo">
+    <img src="image.png" alt="Jeunes étudiants de Nioro du Rip" width="800" height="1000" fetchpriority="high" onerror="this.parentNode.classList.add('sans');this.remove()">
+    <div class="vide" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>
+      <span>Votre photo ici<br><small>photo-hero.jpg</small></span>
+    </div>
+  </figure>
+  </div>
+</main>
+
+<footer>UNACOIS YEESSAL, département de Nioro du Rip, 2026. Contact : candidaturebourse.nioro@gmail.com</footer>
+
+</body>
+</html>
