@@ -122,7 +122,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;font-size:15px;
 
 <header class="entete">
   <div class="wrap">
-    <img src="logo.jpg" alt="UNACOIS YEESASAL" width="30" height="30">
+    <img src="logo.jpg" alt="UNACOIS YEESASAL" width="30" height="30">()
     <span class="pct" id="pct" role="status" aria-live="off">0 % complété</span>
     <a class="retour" href="index.html">Retour à la présentation</a>
   </div>
@@ -323,8 +323,8 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;font-size:15px;
   <fieldset id="s6">
     <legend>6. Projet</legend>
     <p class="aide">Quelques lignes suffisent.</p>
-    <div class="champ"><label for="pourquoi">Pourquoi cette filière et cet établissement ?</label><textarea id="pourquoi" name="pourquoi"></textarea></div>
-    <div class="champ"><label for="metier">Quel métier visez-vous ? En quoi cela sert-il le département de Nioro du Rip ?</label><textarea id="metier" name="metier"></textarea></div>
+    <div class="champ"><label for="pourquoi">Pourquoi cette filière et cet établissement ? *</label><textarea id="pourquoi" name="pourquoi" required></textarea></div>
+    <div class="champ"><label for="metier">Quel métier visez-vous ? En quoi cela sert-il le département de Nioro du Rip ? *</label><textarea id="metier" name="metier" required></textarea></div>
     <div class="champ">
       <span class="lbl">Situation sociale <span class="opt">(facultatif)</span></span>
       <div class="liste" id="social">
@@ -342,8 +342,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;font-size:15px;
     <legend>7. Pièces et engagements</legend>
     <p class="aide">Joignez des scans ou photos lisibles (PDF, JPG ou PNG).</p>
     <div class="champ"><label for="f_id">Pièce d'identité (CNI ou passeport) *</label><input type="file" id="f_id" name="piece_identite" accept=".pdf,.jpg,.jpeg,.png" required></div>
-    <div class="champ"><label for="f_res">Justificatif de résidence dans le département de Nioro du Rip</label><input type="file" id="f_res" name="justificatif_residence" accept=".pdf,.jpg,.jpeg,.png"></div>
-    <div class="champ"><label for="f_dip">Diplôme ou bac, ou certificat de scolarité ou d'inscription *</label><input type="file" id="f_dip" name="diplome_scolarite" accept=".pdf,.jpg,.jpeg,.png" required></div>
+        <div class="champ"><label for="f_dip">Diplôme ou bac, ou certificat de scolarité ou d'inscription *</label><input type="file" id="f_dip" name="diplome_scolarite" accept=".pdf,.jpg,.jpeg,.png" required></div>
     <div class="champ"><label for="f_rel">Relevés de notes *</label><input type="file" id="f_rel" name="releves_notes" accept=".pdf,.jpg,.jpeg,.png" required></div>
     <div class="champ" id="bloc-cv"><label for="f_cv">CV <span class="opt" id="cv-note">(si vous êtes déjà étudiant)</span></label><input type="file" id="f_cv" name="cv" accept=".pdf,.doc,.docx"></div>
 
@@ -361,6 +360,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;font-size:15px;
     <div class="grille">
       <div class="champ"><label for="fait_a">Fait à *</label><input type="text" id="fait_a" name="fait_a" required></div>
       <div class="champ"><label for="date_sig">Date *</label><input type="date" id="date_sig" name="date_signature" required></div>
+      <div class="champ"><label for="sig">Signature du candidat (nom et prénom) *</label><input type="text" id="sig" name="signature_candidat" required></div>
       <div class="champ"><label for="parent">Parent ou garant (nom et prénom) *</label><input type="text" id="parent" name="parent_garant" required></div>
       <div class="champ"><label for="parent_tel">Téléphone du parent ou garant *</label><input type="tel" id="parent_tel" name="parent_garant_tel" inputmode="tel" required></div>
     </div>
